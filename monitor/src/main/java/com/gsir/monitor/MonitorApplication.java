@@ -6,10 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-@MapperScan("com.gsir.monitor.mapper")
 public class MonitorApplication extends SpringBootServletInitializer {
 
     private static Logger logger = LoggerFactory.getLogger(MonitorApplication.class);
