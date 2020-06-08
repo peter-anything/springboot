@@ -1,14 +1,8 @@
 package com.gsir.monitor.entities;
 
-import javax.persistence.*;
-
-@Table(name = "account_users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "JDBC")
     private Integer id;
 
-    @Column(name = "username")
     private String userName;
 
     private String email;
