@@ -11,6 +11,13 @@ spring:
     password: nba
     type: com.alibaba.druid.pool.DruidDataSource
     name: mysql
+  redis:
+    port: 6379
+    database: 0
+    password: sOmE_sEcUrE_pAsS
+    sentinel:
+      master: mymaster
+      nodes: 192.168.1.103:26379,192.168.1.104:26379,192.168.1.105:26379
 
 mybatis-plus:
   global-config:

@@ -24,6 +24,8 @@
         <module>mecury-dao</module>
         <module>mecury-service</module>
         <module>mecury-api</module>
+        <module>mecury-common</module>
+        <module>mecury-middleware</module>
     </modules>
     <!--  packaging 父级项目的类型是pom  -->
     <packaging>pom</packaging>
