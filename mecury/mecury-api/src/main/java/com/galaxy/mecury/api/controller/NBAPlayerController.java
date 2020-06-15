@@ -1,7 +1,7 @@
 package com.galaxy.mecury.api.controller;
 
 import com.galaxy.mecury.entity.NBAPlayer;
-import com.galaxy.mecury.api.service.NBAPlayerService;
+import com.galaxy.mecury.service.NBAPlayerService;
 import com.galaxy.mecury.api.service.RedisService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

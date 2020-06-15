@@ -1,7 +1,7 @@
-package com.galaxy.mecury.api.service.impl;
+package com.galaxy.mecury.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.galaxy.mecury.api.service.MsgLogService;
+import com.galaxy.mecury.service.MsgLogService;
 import com.galaxy.mecury.dao.MsgLogMapper;
 import com.galaxy.mecury.entity.MsgLog;
 import org.springframework.stereotype.Service;

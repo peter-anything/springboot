@@ -1,15 +1,12 @@
 package com.galaxy.mecury.api.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.galaxy.mecury.api.config.RabbitConfig;
 import com.galaxy.mecury.api.service.MailProducerService;
-import com.galaxy.mecury.api.service.MsgLogService;
-import com.galaxy.mecury.api.util.JsonUtil;
+import com.galaxy.mecury.service.MsgLogService;
 import com.galaxy.mecury.entity.Mail;
 import com.galaxy.mecury.entity.MsgLog;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

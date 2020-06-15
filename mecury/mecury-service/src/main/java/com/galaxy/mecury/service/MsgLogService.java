@@ -1,4 +1,4 @@
-package com.galaxy.mecury.api.service;
+package com.galaxy.mecury.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.galaxy.mecury.entity.MsgLog;

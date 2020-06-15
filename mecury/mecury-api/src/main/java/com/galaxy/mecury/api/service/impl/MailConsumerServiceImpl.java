@@ -1,29 +1,21 @@
 package com.galaxy.mecury.api.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 import com.galaxy.mecury.api.config.RabbitConfig;
 import com.galaxy.mecury.api.service.MailConsumerService;
-import com.galaxy.mecury.api.service.MsgLogService;
-import com.galaxy.mecury.api.util.JsonUtil;
+import com.galaxy.mecury.service.MsgLogService;
 import com.galaxy.mecury.api.util.SendMailUtil;
 import com.galaxy.mecury.entity.Mail;
 import com.galaxy.mecury.entity.MsgLog;
 import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.MessageProperties;
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.io.IOException;
-import java.util.Map;
 
 /**
  * @Auther: peter
