@@ -1,7 +1,6 @@
-package com.galaxy.mecury.service.impl;
+package com.galaxy.mecury.api.service.impl;
 
-import com.galaxy.mecury.service.RedisService;
-import io.lettuce.core.internal.LettuceLists;
+import com.galaxy.mecury.api.service.RedisService;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -9,8 +8,6 @@ import org.springframework.data.redis.connection.RedisStringCommands;
 import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.core.types.Expiration;
-import org.springframework.data.redis.serializer.RedisSerializer;
-import org.springframework.data.redis.serializer.SerializationException;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.scripting.support.ResourceScriptSource;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.galaxy.mecury.service;
+package com.galaxy.mecury.api.service;
 
 import java.util.List;
 import java.util.Set;

@@ -1,2 +1,4 @@
 .idea
 **test
+mecury/**/target
+mecury/mecury-service/target/classes

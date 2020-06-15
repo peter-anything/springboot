@@ -1,4 +1,4 @@
-package com.galaxy.mecury.config;
+package com.galaxy.mecury.api.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
