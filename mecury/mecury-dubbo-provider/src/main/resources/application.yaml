@@ -1,0 +1,17 @@
+dubbo:
+  application:
+    name: mecury-dubbo-provider
+    id: mecury-dubbo-provider
+  registry:
+    protocol: zookeeper
+    address: 192.168.1.103:2181,192.168.1.104:2181,192.168.1.105:2181
+  protocol:
+    name: dubbo
+    port: 20880
+  provider:
+    timeout: 10000
+    retries: 3
+    delay: -1
+
+service:
+  version: 1.0.0
