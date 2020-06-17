@@ -1,4 +1,4 @@
-package com.galaxy.mecury.dubbo.provider.entity;
+package com.galaxy.mecury.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

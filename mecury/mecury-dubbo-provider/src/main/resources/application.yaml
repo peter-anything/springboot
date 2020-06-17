@@ -12,6 +12,12 @@ dubbo:
     timeout: 10000
     retries: 3
     delay: -1
+  scan:
+    com.galaxy.mecury.dubbo.provider
+server:
+  port: 9999
 
-service:
-  version: 1.0.0
+spring:
+  application:
+    name: mecury-dubbo-provider
+  autoconfigure.exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration

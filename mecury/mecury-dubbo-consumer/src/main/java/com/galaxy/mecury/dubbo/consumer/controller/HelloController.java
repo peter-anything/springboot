@@ -1,7 +1,7 @@
 package com.galaxy.mecury.dubbo.consumer.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.galaxy.mecury.dubbo.provider.service.CityService;
+import com.galaxy.mecury.dubbo.service.CityService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @Reference(version = "${service.version}", check = false)
+    @Reference(check = false)
     private CityService cityService;
 
     @RequestMapping("/hello")

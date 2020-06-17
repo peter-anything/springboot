@@ -25,9 +25,9 @@
         <module>mecury-service</module>
         <module>mecury-api</module>
         <module>mecury-common</module>
-        <module>mecury-middleware</module>
         <module>mecury-dubbo-provider</module>
         <module>mecury-dubbo-consumer</module>
+        <module>mecury-dubbo-service</module>
     </modules>
     <!--  packaging 父级项目的类型是pom  -->
     <packaging>pom</packaging>
