@@ -28,6 +28,7 @@
         <module>mecury-dubbo-provider</module>
         <module>mecury-dubbo-consumer</module>
         <module>mecury-dubbo-service</module>
+        <module>mecury-netty-server</module>
     </modules>
     <!--  packaging 父级项目的类型是pom  -->
     <packaging>pom</packaging>
@@ -88,6 +89,13 @@
                 <groupId>com.alibaba.boot</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
                 <version>0.2.0</version>
+            </dependency>
+
+            <!-- Netty alll -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.50.Final</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
