@@ -13,7 +13,8 @@ dubbo:
     retries: 3
     delay: -1
   scan:
-    com.galaxy.mecury.dubbo.provider
+    base-packages: com.galaxy.mecury.dubbo.provider.service.impl
+
 server:
   port: 9999
 

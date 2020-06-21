@@ -1,8 +1,8 @@
 package com.galaxy.mecury.dubbo.provider.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.galaxy.mecury.dubbo.service.CityService;
 import com.galaxy.mecury.entity.City;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
 /**
