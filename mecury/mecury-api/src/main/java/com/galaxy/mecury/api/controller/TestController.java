@@ -2,8 +2,10 @@ package com.galaxy.mecury.api.controller;
 
 import com.galaxy.mecury.api.common.exception.ParamsNotValidException;
 import com.galaxy.mecury.entity.NBAPlayer;
+import com.galaxy.mecury.test.starter.service.ExampleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,5 +31,13 @@ public class TestController {
         }
 
         return nbaPlayer;
+    }
+
+    @Autowired
+    private ExampleService exampleService;
+
+    @RequestMapping("/starter")
+    public String starter() {
+        return exampleService.wrap("TEST");
     }
 }
