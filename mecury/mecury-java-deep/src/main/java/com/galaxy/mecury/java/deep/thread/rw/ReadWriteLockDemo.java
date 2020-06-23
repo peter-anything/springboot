@@ -1,7 +1,5 @@
 package com.galaxy.mecury.java.deep.thread.rw;
 
-import com.sun.codemodel.internal.JCatchBlock;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;

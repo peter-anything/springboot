@@ -22,12 +22,8 @@ public class MyQueue<T> {
             while (length == elements.length) {
                 System.out.println("queue is full");
                 notFull.await();
-                lock.unlock();;
             }
             elements[addIndex] = object;
-            if (addIndex ++ == elements.length) {
-                addIndex = 0;
-            }
             length ++;
             notEmpty.signal();
         } finally {
@@ -43,9 +39,6 @@ public class MyQueue<T> {
                 notEmpty.await();
             }
             Object element = elements[removeIndex];
-            if (removeIndex ++ == elements.length) {
-                removeIndex = 0;
-            }
             length --;
             notFull.signal();
             return (T) element;
