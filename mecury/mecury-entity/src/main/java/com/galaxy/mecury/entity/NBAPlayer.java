@@ -1,6 +1,8 @@
 package com.galaxy.mecury.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import org.hibernate.validator.constraints.Length;
+
 /**
  * @Auther: peter
  * @Date: 2020/6/10 23:42
@@ -12,6 +14,7 @@ public class NBAPlayer {
     private Integer id;
     private String code;
     private String country;
+    @Length(min = 6)
     private String countryEn;
     private String displayAffiliation;
     private String displayName;
