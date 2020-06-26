@@ -6,3 +6,8 @@ mecury/mecury-service/target/classes
 mecury/mecury.iml
 mecury/logs
 output
+mecury/lib
+*.gz
+*.class
+*.jar
+*.log
