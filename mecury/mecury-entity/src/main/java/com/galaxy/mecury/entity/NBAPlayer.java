@@ -1,53 +1,119 @@
 package com.galaxy.mecury.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import org.hibernate.validator.constraints.Length;
-
-/**
- * @Auther: peter
- * @Date: 2020/6/10 23:42
- * @Description:
- */
 
 @TableName("players")
 public class NBAPlayer {
     private Integer id;
+
     private String code;
+
     private String country;
-    @Length(min = 6)
+
     private String countryEn;
+
     private String displayAffiliation;
+
     private String displayName;
+
     private String dob;
+
     private String draftYear;
+
     private String experience;
+
     private String firstInitial;
+
     private String firstName;
+
     private String firstNameEn;
+
     private String height;
+
     private String jerseyNo;
+
     private String lastName;
+
     private String lastNameEn;
 
     private String leagueId;
+
     private String playerId;
+
     private String position;
+
     private String schoolType;
+
     private String weight;
+
     private String teamAbbr;
+
     private String teamCity;
+
     private String teamCityEn;
+
     private String teamCode;
+
     private String teamConference;
+
     private String teamDisplayAbbr;
+
     private String teamDisplayConference;
+
     private String teamDivision;
+
     private String teamId;
-    private Boolean teamIsAllStarTeam;
-    private Boolean teamIsLeagueTeam;
+
+    private Short teamIsAllStarTeam;
+
+    private Short teamIsLeagueTeam;
+
     private String teamLeagueId;
+
     private String teamName;
+
     private String teamNameEn;
+
+    @Override
+    public String toString() {
+        return "NBAPlayer{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", country='" + country + '\'' +
+                ", countryEn='" + countryEn + '\'' +
+                ", displayAffiliation='" + displayAffiliation + '\'' +
+                ", displayName='" + displayName + '\'' +
+                ", dob='" + dob + '\'' +
+                ", draftYear='" + draftYear + '\'' +
+                ", experience='" + experience + '\'' +
+                ", firstInitial='" + firstInitial + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", firstNameEn='" + firstNameEn + '\'' +
+                ", height='" + height + '\'' +
+                ", jerseyNo='" + jerseyNo + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", lastNameEn='" + lastNameEn + '\'' +
+                ", leagueId='" + leagueId + '\'' +
+                ", playerId='" + playerId + '\'' +
+                ", position='" + position + '\'' +
+                ", schoolType='" + schoolType + '\'' +
+                ", weight='" + weight + '\'' +
+                ", teamAbbr='" + teamAbbr + '\'' +
+                ", teamCity='" + teamCity + '\'' +
+                ", teamCityEn='" + teamCityEn + '\'' +
+                ", teamCode='" + teamCode + '\'' +
+                ", teamConference='" + teamConference + '\'' +
+                ", teamDisplayAbbr='" + teamDisplayAbbr + '\'' +
+                ", teamDisplayConference='" + teamDisplayConference + '\'' +
+                ", teamDivision='" + teamDivision + '\'' +
+                ", teamId='" + teamId + '\'' +
+                ", teamIsAllStarTeam=" + teamIsAllStarTeam +
+                ", teamIsLeagueTeam=" + teamIsLeagueTeam +
+                ", teamLeagueId='" + teamLeagueId + '\'' +
+                ", teamName='" + teamName + '\'' +
+                ", teamNameEn='" + teamNameEn + '\'' +
+                '}';
+    }
 
     public Integer getId() {
         return id;
@@ -62,7 +128,7 @@ public class NBAPlayer {
     }
 
     public void setCode(String code) {
-        this.code = code;
+        this.code = code == null ? null : code.trim();
     }
 
     public String getCountry() {
@@ -70,7 +136,7 @@ public class NBAPlayer {
     }
 
     public void setCountry(String country) {
-        this.country = country;
+        this.country = country == null ? null : country.trim();
     }
 
     public String getCountryEn() {
@@ -78,7 +144,7 @@ public class NBAPlayer {
     }
 
     public void setCountryEn(String countryEn) {
-        this.countryEn = countryEn;
+        this.countryEn = countryEn == null ? null : countryEn.trim();
     }
 
     public String getDisplayAffiliation() {
@@ -86,7 +152,7 @@ public class NBAPlayer {
     }
 
     public void setDisplayAffiliation(String displayAffiliation) {
-        this.displayAffiliation = displayAffiliation;
+        this.displayAffiliation = displayAffiliation == null ? null : displayAffiliation.trim();
     }
 
     public String getDisplayName() {
@@ -94,7 +160,7 @@ public class NBAPlayer {
     }
 
     public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+        this.displayName = displayName == null ? null : displayName.trim();
     }
 
     public String getDob() {
@@ -102,7 +168,7 @@ public class NBAPlayer {
     }
 
     public void setDob(String dob) {
-        this.dob = dob;
+        this.dob = dob == null ? null : dob.trim();
     }
 
     public String getDraftYear() {
@@ -110,7 +176,7 @@ public class NBAPlayer {
     }
 
     public void setDraftYear(String draftYear) {
-        this.draftYear = draftYear;
+        this.draftYear = draftYear == null ? null : draftYear.trim();
     }
 
     public String getExperience() {
@@ -118,7 +184,7 @@ public class NBAPlayer {
     }
 
     public void setExperience(String experience) {
-        this.experience = experience;
+        this.experience = experience == null ? null : experience.trim();
     }
 
     public String getFirstInitial() {
@@ -126,7 +192,7 @@ public class NBAPlayer {
     }
 
     public void setFirstInitial(String firstInitial) {
-        this.firstInitial = firstInitial;
+        this.firstInitial = firstInitial == null ? null : firstInitial.trim();
     }
 
     public String getFirstName() {
@@ -134,7 +200,7 @@ public class NBAPlayer {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName = firstName == null ? null : firstName.trim();
     }
 
     public String getFirstNameEn() {
@@ -142,7 +208,7 @@ public class NBAPlayer {
     }
 
     public void setFirstNameEn(String firstNameEn) {
-        this.firstNameEn = firstNameEn;
+        this.firstNameEn = firstNameEn == null ? null : firstNameEn.trim();
     }
 
     public String getHeight() {
@@ -150,7 +216,7 @@ public class NBAPlayer {
     }
 
     public void setHeight(String height) {
-        this.height = height;
+        this.height = height == null ? null : height.trim();
     }
 
     public String getJerseyNo() {
@@ -158,7 +224,7 @@ public class NBAPlayer {
     }
 
     public void setJerseyNo(String jerseyNo) {
-        this.jerseyNo = jerseyNo;
+        this.jerseyNo = jerseyNo == null ? null : jerseyNo.trim();
     }
 
     public String getLastName() {
@@ -166,7 +232,7 @@ public class NBAPlayer {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName = lastName == null ? null : lastName.trim();
     }
 
     public String getLastNameEn() {
@@ -174,7 +240,7 @@ public class NBAPlayer {
     }
 
     public void setLastNameEn(String lastNameEn) {
-        this.lastNameEn = lastNameEn;
+        this.lastNameEn = lastNameEn == null ? null : lastNameEn.trim();
     }
 
     public String getLeagueId() {
@@ -182,7 +248,7 @@ public class NBAPlayer {
     }
 
     public void setLeagueId(String leagueId) {
-        this.leagueId = leagueId;
+        this.leagueId = leagueId == null ? null : leagueId.trim();
     }
 
     public String getPlayerId() {
@@ -190,7 +256,7 @@ public class NBAPlayer {
     }
 
     public void setPlayerId(String playerId) {
-        this.playerId = playerId;
+        this.playerId = playerId == null ? null : playerId.trim();
     }
 
     public String getPosition() {
@@ -198,7 +264,7 @@ public class NBAPlayer {
     }
 
     public void setPosition(String position) {
-        this.position = position;
+        this.position = position == null ? null : position.trim();
     }
 
     public String getSchoolType() {
@@ -206,7 +272,7 @@ public class NBAPlayer {
     }
 
     public void setSchoolType(String schoolType) {
-        this.schoolType = schoolType;
+        this.schoolType = schoolType == null ? null : schoolType.trim();
     }
 
     public String getWeight() {
@@ -214,7 +280,7 @@ public class NBAPlayer {
     }
 
     public void setWeight(String weight) {
-        this.weight = weight;
+        this.weight = weight == null ? null : weight.trim();
     }
 
     public String getTeamAbbr() {
@@ -222,7 +288,7 @@ public class NBAPlayer {
     }
 
     public void setTeamAbbr(String teamAbbr) {
-        this.teamAbbr = teamAbbr;
+        this.teamAbbr = teamAbbr == null ? null : teamAbbr.trim();
     }
 
     public String getTeamCity() {
@@ -230,7 +296,7 @@ public class NBAPlayer {
     }
 
     public void setTeamCity(String teamCity) {
-        this.teamCity = teamCity;
+        this.teamCity = teamCity == null ? null : teamCity.trim();
     }
 
     public String getTeamCityEn() {
@@ -238,7 +304,7 @@ public class NBAPlayer {
     }
 
     public void setTeamCityEn(String teamCityEn) {
-        this.teamCityEn = teamCityEn;
+        this.teamCityEn = teamCityEn == null ? null : teamCityEn.trim();
     }
 
     public String getTeamCode() {
@@ -246,7 +312,7 @@ public class NBAPlayer {
     }
 
     public void setTeamCode(String teamCode) {
-        this.teamCode = teamCode;
+        this.teamCode = teamCode == null ? null : teamCode.trim();
     }
 
     public String getTeamConference() {
@@ -254,7 +320,7 @@ public class NBAPlayer {
     }
 
     public void setTeamConference(String teamConference) {
-        this.teamConference = teamConference;
+        this.teamConference = teamConference == null ? null : teamConference.trim();
     }
 
     public String getTeamDisplayAbbr() {
@@ -262,7 +328,7 @@ public class NBAPlayer {
     }
 
     public void setTeamDisplayAbbr(String teamDisplayAbbr) {
-        this.teamDisplayAbbr = teamDisplayAbbr;
+        this.teamDisplayAbbr = teamDisplayAbbr == null ? null : teamDisplayAbbr.trim();
     }
 
     public String getTeamDisplayConference() {
@@ -270,7 +336,7 @@ public class NBAPlayer {
     }
 
     public void setTeamDisplayConference(String teamDisplayConference) {
-        this.teamDisplayConference = teamDisplayConference;
+        this.teamDisplayConference = teamDisplayConference == null ? null : teamDisplayConference.trim();
     }
 
     public String getTeamDivision() {
@@ -278,7 +344,7 @@ public class NBAPlayer {
     }
 
     public void setTeamDivision(String teamDivision) {
-        this.teamDivision = teamDivision;
+        this.teamDivision = teamDivision == null ? null : teamDivision.trim();
     }
 
     public String getTeamId() {
@@ -286,22 +352,22 @@ public class NBAPlayer {
     }
 
     public void setTeamId(String teamId) {
-        this.teamId = teamId;
+        this.teamId = teamId == null ? null : teamId.trim();
     }
 
-    public Boolean getTeamIsAllStarTeam() {
+    public Short getTeamIsAllStarTeam() {
         return teamIsAllStarTeam;
     }
 
-    public void setTeamIsAllStarTeam(Boolean teamIsAllStarTeam) {
+    public void setTeamIsAllStarTeam(Short teamIsAllStarTeam) {
         this.teamIsAllStarTeam = teamIsAllStarTeam;
     }
 
-    public Boolean getTeamIsLeagueTeam() {
+    public Short getTeamIsLeagueTeam() {
         return teamIsLeagueTeam;
     }
 
-    public void setTeamIsLeagueTeam(Boolean teamIsLeagueTeam) {
+    public void setTeamIsLeagueTeam(Short teamIsLeagueTeam) {
         this.teamIsLeagueTeam = teamIsLeagueTeam;
     }
 
@@ -310,7 +376,7 @@ public class NBAPlayer {
     }
 
     public void setTeamLeagueId(String teamLeagueId) {
-        this.teamLeagueId = teamLeagueId;
+        this.teamLeagueId = teamLeagueId == null ? null : teamLeagueId.trim();
     }
 
     public String getTeamName() {
@@ -318,7 +384,7 @@ public class NBAPlayer {
     }
 
     public void setTeamName(String teamName) {
-        this.teamName = teamName;
+        this.teamName = teamName == null ? null : teamName.trim();
     }
 
     public String getTeamNameEn() {
@@ -326,6 +392,6 @@ public class NBAPlayer {
     }
 
     public void setTeamNameEn(String teamNameEn) {
-        this.teamNameEn = teamNameEn;
+        this.teamNameEn = teamNameEn == null ? null : teamNameEn.trim();
     }
 }
