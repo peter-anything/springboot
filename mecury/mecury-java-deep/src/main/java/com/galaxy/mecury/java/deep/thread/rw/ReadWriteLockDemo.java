@@ -15,24 +15,31 @@ public class ReadWriteLockDemo {
     private static Lock writeLock = lock.writeLock();
 
     public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                readWriteFile(Thread.currentThread(), "name1");
-
-            }
+//        ExecutorService executorService = Executors.newCachedThreadPool();
+//        executorService.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                readWriteFile(Thread.currentThread(), "name1");
+//
+//            }
+//        });
+        Thread t1 = new Thread(() -> {
+            readWriteFile(Thread.currentThread(), "name1");
         });
-
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                readWriteFile(Thread.currentThread(), "name2");
-            }
+        Thread t2 = new Thread(() -> {
+            readWriteFile(Thread.currentThread(), "name1");
         });
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
 
-        Thread.sleep(2000);
-        isUpdated = false;
+//        executorService.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                readWriteFile(Thread.currentThread(), "name2");
+//            }
+//        });
     }
 
     public static void readWriteFile(Thread thread, String name) {

@@ -31,23 +31,20 @@ public class SpringApplication {
     public static void main(String[] args) throws Exception {
 //        generator();
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        for (String name: context.getBeanDefinitionNames()) {
+            System.out.println(name);
+        }
+        System.out.println("Before register ===========================================================================");
         context.register(AppConfig.class);
+        for (String name: context.getBeanDefinitionNames()) {
+            System.out.println(name);
+        }
+        System.out.println("Before refresh ===========================================================================");
         context.refresh();
 
-//        for (String name: context.getBeanDefinitionNames()) {
-//            System.out.println(name);
-//        }
-
-        NBAPlayerService nbaPlayerService = context.getBean(NBAPlayerService.class);
-//        List<NBAPlayer> playerList = nbaPlayerService.getAll();
-//        for (NBAPlayer player : playerList) {
-//            System.out.println(player);
-//        }
-        NBAPlayer nbaPlayer = new NBAPlayer();
-        nbaPlayer.setCode("test008");
-        nbaPlayer.setCountry("中国");
-        nbaPlayer.setCountryEn("CHINA");
-        nbaPlayerService.insert(nbaPlayer);
+        for (String name: context.getBeanDefinitionNames()) {
+            System.out.println(name);
+        }
 
         context.close();
     }

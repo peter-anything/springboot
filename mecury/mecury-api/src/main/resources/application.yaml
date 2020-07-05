@@ -25,6 +25,12 @@ spring:
     password: abc123_
     publisher-returns: true
     listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 1000
+        default-requeue-rejected: false
       direct:
         acknowledge-mode: manual
         retry:

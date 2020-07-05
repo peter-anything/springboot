@@ -1,6 +1,7 @@
 package com.galaxy.mecury.api.controller;
 
 import com.galaxy.mecury.api.common.exception.ParamsNotValidException;
+import com.galaxy.mecury.api.service.DeadLetterProducerService;
 import com.galaxy.mecury.entity.NBAPlayer;
 import com.galaxy.mecury.test.starter.service.ExampleService;
 import io.swagger.annotations.Api;
@@ -36,8 +37,17 @@ public class TestController {
     @Autowired
     private ExampleService exampleService;
 
+    @Autowired
+    private DeadLetterProducerService deadLetterProducerService;
+
     @RequestMapping("/starter")
     public String starter() {
         return exampleService.wrap("TEST");
+    }
+
+    @RequestMapping("/dead-letter")
+    public String deadLetter() {
+        deadLetterProducerService.send(10);
+        return "deadLetter";
     }
 }

@@ -28,8 +28,9 @@
         <module>mecury-dubbo-provider</module>
         <module>mecury-dubbo-consumer</module>
         <module>mecury-dubbo-service</module>
-        <module>mecury-netty-server</module>
         <module>mecury-java-deep</module>
+        <module>mecury-netty-server</module>
+        <module>spring-boot-starter-grpc</module>
     </modules>
     <!--  packaging 父级项目的类型是pom  -->
     <packaging>pom</packaging>
@@ -178,6 +179,14 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>3.0.1</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>3.11.4</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 </project>

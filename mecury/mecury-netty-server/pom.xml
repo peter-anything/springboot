@@ -16,6 +16,41 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.xolstice.maven.plugins/protobuf-maven-plugin -->
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.6.1</version>
+                <configuration>
+                    <protocExecutable>
+                        D:\new_download\protoc-3.12.3-win64\bin\protoc.exe  <!-- 刚刚环境变量配置的位置 -->
+                    </protocExecutable>
+                    <pluginId>protoc-java</pluginId>
+                    <!-- proto文件放置的目录 -->
+                    <protoSourceRoot>${project.basedir}/src/main/java/com/luxy/netty/proto</protoSourceRoot>
+                    <!-- 生成文件的目录 -->
+                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+                    <!-- 生成文件前是否把目标目录清空，这个最好设置为false，以免误删项目文件 -->
+                    <clearOutputDirectory>false</clearOutputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
