@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @Reference(check = false, loadbalance = "")
+    @Reference(check = false, loadbalance = "", mock = "")
     private CityService cityService;
 
     @RequestMapping("/hello")

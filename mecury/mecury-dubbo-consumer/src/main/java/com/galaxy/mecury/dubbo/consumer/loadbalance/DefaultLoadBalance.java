@@ -8,6 +8,7 @@ import org.apache.dubbo.rpc.cluster.LoadBalance;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Vector;
 
 public class DefaultLoadBalance implements LoadBalance {
     @Override

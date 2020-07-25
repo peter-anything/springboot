@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Import({StaticStudentFacotry.class, StaticSimpleBeanFactory.class})
 public class MyTestConfig {
     @Bean
-    public Driver driver(Car car){
+    public Driver driver(Car car) {
         Driver driver = new Driver();
         driver.setId(1);
         driver.setName("driver");
@@ -21,7 +21,7 @@ public class MyTestConfig {
     }
 
     @Bean
-    public Car car(){
+    public Car car() {
         Car car = new Car();
         car.setId(1);
         car.setName("car");

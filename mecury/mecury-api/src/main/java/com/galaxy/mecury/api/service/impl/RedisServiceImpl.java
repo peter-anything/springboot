@@ -81,12 +81,12 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public void hmSet(String key, Object hashKey, Object value) {
         HashOperations<String, Object, Object> hash = redisTemplate.opsForHash();
-        hash.put(key,hashKey, value);
+        hash.put(key, hashKey, value);
     }
 
     @Override
     public Object hmGet(String key, Object hashKey) {
-        HashOperations<String, Object, Object>  hash = redisTemplate.opsForHash();
+        HashOperations<String, Object, Object> hash = redisTemplate.opsForHash();
         return hash.get(key, hashKey);
     }
 
@@ -105,7 +105,7 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public void add(String key, Object value) {
         SetOperations<String, Object> set = redisTemplate.opsForSet();
-        set.add(key,value);
+        set.add(key, value);
     }
 
     @Override
@@ -117,7 +117,7 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public void zAdd(String key, Object value, double scoure) {
         ZSetOperations<String, Object> zset = redisTemplate.opsForZSet();
-        zset.add(key,value,scoure);
+        zset.add(key, value, scoure);
     }
 
     @Override
@@ -130,7 +130,7 @@ public class RedisServiceImpl implements RedisService {
     public boolean lock(String key, long expire) {
         Boolean result = (Boolean) redisTemplate.execute(new RedisCallback() {
             public Object doInRedis(RedisConnection redisConnection) throws DataAccessException {
-                return redisConnection.set(key.getBytes(), "".getBytes(),  Expiration.seconds(expire), RedisStringCommands.SetOption.ifAbsent());
+                return redisConnection.set(key.getBytes(), "".getBytes(), Expiration.seconds(expire), RedisStringCommands.SetOption.ifAbsent());
             }
         });
 
@@ -168,7 +168,7 @@ public class RedisServiceImpl implements RedisService {
         redisScript.setResultType(Long.class);
         List<String> keys = new ArrayList<>();
         keys.add(key);
-        Long result = (Long) redisTemplate.execute(redisScript, new StringRedisSerializer(),new StringRedisSerializer(), keys, String.valueOf(num));
+        Long result = (Long) redisTemplate.execute(redisScript, new StringRedisSerializer(), new StringRedisSerializer(), keys, String.valueOf(num));
         if (result > 0) {
             return true;
         }

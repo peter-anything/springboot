@@ -11,7 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class SqlLogging {
     @Pointcut("execution(* com.galaxy.mecury.java.deep.service.*.insert(..))")
-    public void pointcut() {}
+    public void pointcut() {
+    }
 
     @Before("pointcut()")
     public void before(JoinPoint joinPoint) {

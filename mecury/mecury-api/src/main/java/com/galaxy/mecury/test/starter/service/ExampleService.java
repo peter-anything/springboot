@@ -9,6 +9,7 @@ public class ExampleService {
         this.prefix = prefix;
         this.suffix = suffix;
     }
+
     public String wrap(String word) {
         return prefix + word + suffix;
     }

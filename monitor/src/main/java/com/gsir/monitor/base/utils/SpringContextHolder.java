@@ -4,13 +4,14 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+
 /**
-* @ClassName SpringContextHolder
-* @Description 
-* @author WCNGS@QQ.COMTODO
-* @date 2018/8/29 17:34
-* @Version 1.0.0
-*/
+ * @author WCNGS@QQ.COMTODO
+ * @ClassName SpringContextHolder
+ * @Description
+ * @date 2018/8/29 17:34
+ * @Version 1.0.0
+ */
 @Component
 public class SpringContextHolder implements ApplicationContextAware {
 

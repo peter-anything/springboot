@@ -12,9 +12,9 @@ public class ContentImportSelector implements ImportSelector {
                 .fromMap(importingClassMetadata.getAnnotationAttributes(annotationType.getName(), false));
         String policy = attributes.getString("policy");
         if ("core".equals(policy)) {
-            return new String[] { CoreContentConfiguration.class.getName() };
+            return new String[]{CoreContentConfiguration.class.getName()};
         } else {
-            return new String[] { SimpleContentConfiguration.class.getName() };
+            return new String[]{SimpleContentConfiguration.class.getName()};
         }
     }
 }

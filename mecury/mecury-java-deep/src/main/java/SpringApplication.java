@@ -1,6 +1,7 @@
-import com.galaxy.mecury.entity.NBAPlayer;
+import com.galaxy.mecury.java.deep.components.circle.CircleEntityA;
+import com.galaxy.mecury.java.deep.components.circle.CircleEntityB;
 import com.galaxy.mecury.java.deep.config.AppConfig;
-import com.galaxy.mecury.java.deep.service.NBAPlayerService;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Injector;
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
@@ -10,7 +11,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.ServiceLoader;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 
 public class SpringApplication {
@@ -18,34 +23,45 @@ public class SpringApplication {
 
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
-        //指定逆向工程配置文件
+
+
         File configFile = new File("D:\\codes\\springboot\\mecury\\mecury-java-deep\\src\\main\\resources\\db\\generator.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
-        Configuration config =cp.parseConfiguration(configFile);
+        Configuration config = cp.parseConfiguration(configFile);
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);
         MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config,
-            callback, warnings);
+                callback, warnings);
         myBatisGenerator.generate(null);
     }
 
     public static void main(String[] args) throws Exception {
-//        generator();
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        for (String name: context.getBeanDefinitionNames()) {
-            System.out.println(name);
-        }
-        System.out.println("Before register ===========================================================================");
-        context.register(AppConfig.class);
-        for (String name: context.getBeanDefinitionNames()) {
-            System.out.println(name);
-        }
-        System.out.println("Before refresh ===========================================================================");
-        context.refresh();
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+//        context.register(AppConfig.class);
+//        context.refresh();
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        System.out.println(classLoader.toString());
+        System.out.println(classLoader.getParent().toString());
+        System.out.println(classLoader.getParent().getParent());
+        Injector.findLoadedClass
+    }
 
-        for (String name: context.getBeanDefinitionNames()) {
-            System.out.println(name);
+    public static void perm(char[] chars, ArrayList result) {
+        if (result.size() == 5) {
+            return;
         }
 
-        context.close();
+        for (int i = 0; i < chars.length; i++) {
+            result.add(chars[i]);
+            for (int j = i + 1; j < chars.length; j++) {
+                swap(chars, i, j);
+                swap(chars, i, j);
+            }
+        }
+    }
+
+    public static void swap(char[] chars, int i, int j) {
+        char tmp = chars[i];
+        chars[i] = chars[j];
+        chars[j] = tmp;
     }
 }

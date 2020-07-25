@@ -18,11 +18,11 @@ public class ProxyUtils {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-             try {
+            try {
                 out.close();
-             } catch (IOException e) {
-                 e.printStackTrace();
-             }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

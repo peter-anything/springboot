@@ -6,7 +6,7 @@ import org.springframework.beans.factory.InitializingBean;
 
 @Data
 public class SimpleBean implements InitializingBean, DisposableBean {
-    private  String name;
+    private String name;
     private String sex;
     private String age;
 

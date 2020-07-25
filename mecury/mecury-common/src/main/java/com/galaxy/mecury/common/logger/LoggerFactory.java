@@ -17,7 +17,8 @@ public class LoggerFactory {
         }
     }
 
-    private LoggerFactory() {}
+    private LoggerFactory() {
+    }
 
     public static void setLoggerAdapter(String loggerAdapter) {
 //        if (loggerAdapter != null && loggerAdapter.length() > 0) {

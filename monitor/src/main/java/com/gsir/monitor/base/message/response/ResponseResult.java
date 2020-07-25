@@ -13,24 +13,24 @@ public class ResponseResult<T> implements Serializable {
     private static final long serialVersionUID = -4505655308965878999L;
 
     /**
-     *  请求成功返回码为：0-成功
+     * 请求成功返回码为：0-成功
      */
     private static final Integer SUCCESS_CODE = 0;
     /**
-     *  返回数据
+     * 返回数据
      */
     private T data;
     /**
-     *  返回码
+     * 返回码
      */
     private int code;
 
     /**
-     *  返回描述
+     * 返回描述
      */
     private String msg;
 
-    private boolean status=true;
+    private boolean status = true;
 
     public ResponseResult() {
         this.code = SUCCESS_CODE;
@@ -39,7 +39,7 @@ public class ResponseResult<T> implements Serializable {
 
     public ResponseResult(boolean status, int code) {
         this();
-        this.status=status;
+        this.status = status;
         this.code = code;
     }
 
@@ -51,7 +51,7 @@ public class ResponseResult<T> implements Serializable {
 
     public ResponseResult(boolean status, int code, String msg) {
         this();
-        this.status=status;
+        this.status = status;
         this.code = code;
         this.msg = msg;
     }
@@ -65,7 +65,7 @@ public class ResponseResult<T> implements Serializable {
 
     public ResponseResult(boolean status, int code, String msg, T data) {
         this();
-        this.status=status;
+        this.status = status;
         this.code = code;
         this.msg = msg;
         this.data = data;

@@ -1,7 +1,8 @@
 package com.galaxy.mecury.common.utils;
 
 public final class ArrayUtils {
-    private ArrayUtils() {}
+    private ArrayUtils() {
+    }
 
     /**
      * <p>Checks if the array is null or empty. <p/>

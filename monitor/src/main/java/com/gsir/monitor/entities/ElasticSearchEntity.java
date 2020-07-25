@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 import java.util.Map;
 
 /**
- * @ClassName ElasticSearchEntity
- * @Description  数据存储对象
  * @author peter.wang
+ * @ClassName ElasticSearchEntity
+ * @Description 数据存储对象
  * @date 2020/5/31
  * @Version 1.0.0
  */

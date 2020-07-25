@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Conditional;
 public class StaticStudentFacotry {
     @Conditional({WindowsCondition.class})
     @Bean
-    public static Student getStudent(@Value("测试用例")String name) {
+    public static Student getStudent(@Value("测试用例") String name) {
         return new Student(name);
     }
 }

@@ -5,7 +5,7 @@ import com.gsir.monitor.base.message.exception.GlobalException;
 
 public class ServerException extends GlobalException {
 
-    public ServerException(String message){
+    public ServerException(String message) {
         super(message, ResponseCode.ERROR.getCode());
     }
 }

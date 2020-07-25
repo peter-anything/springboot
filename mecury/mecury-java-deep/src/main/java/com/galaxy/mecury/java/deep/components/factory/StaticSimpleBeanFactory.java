@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Conditional;
 public class StaticSimpleBeanFactory {
     @Conditional({WindowsCondition.class})
     @Bean
-    public static SimpleBean getStudent(@Value("测试用例")String name) {
+    public static SimpleBean getStudent(@Value("测试用例") String name) {
         SimpleBean simpleBean = new SimpleBean();
         simpleBean.setName("Test simple bean");
         return simpleBean;

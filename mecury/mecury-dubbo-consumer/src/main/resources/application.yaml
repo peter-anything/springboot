@@ -11,5 +11,6 @@ dubbo:
     id: mecury-dubbo-consumer
     name: mecury-dubbo-consumer
   registry:
+    register: false
     protocol: zookeeper
     address: 192.168.1.103:2181,192.168.1.104:2181,192.168.1.105:2181

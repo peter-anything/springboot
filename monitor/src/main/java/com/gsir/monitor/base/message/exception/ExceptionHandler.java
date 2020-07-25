@@ -29,7 +29,7 @@ public class ExceptionHandler {
     @org.springframework.web.bind.annotation.ExceptionHandler(GlobalException.class)
     @ResponseBody
     public ResponseResult handleException(HttpServletRequest request, Exception ex) {
-        log.error("exception error:{}",ex);
+        log.error("exception error:{}", ex);
         ResponseResult response = new ResponseResult();
         if (ex instanceof org.springframework.web.servlet.NoHandlerFoundException) {
             response.setCode(404);
@@ -43,19 +43,21 @@ public class ExceptionHandler {
         return response;
     }
 
-    /** 数据库中已存在异常
-     * @author WCNGS@QQ.COM
-     * @See
-     * @date 2019/9/23 17:53
+    /**
+     * 数据库中已存在异常
+     *
      * @param request
      * @param ex
      * @return xyz.wongs.weathertop.base.message.response.Response
      * @throws
+     * @author WCNGS@QQ.COM
+     * @See
+     * @date 2019/9/23 17:53
      * @since
      */
     @org.springframework.web.bind.annotation.ExceptionHandler(DuplicateKeyException.class)
     @ResponseBody
-    public ResponseResult handleDuplicateKeyException(HttpServletRequest request, DuplicateKeyException ex){
+    public ResponseResult handleDuplicateKeyException(HttpServletRequest request, DuplicateKeyException ex) {
         log.error("exception error:{}", ex);
         ResponseResult response = new ResponseResult(false, ResponseCode.DUPLICATEKEY_ERROR_CODE.getCode(), ResponseCode.DUPLICATEKEY_ERROR_CODE.getMsg());
         return response;
@@ -63,48 +65,48 @@ public class ExceptionHandler {
 
     @ResponseBody
     @org.springframework.web.bind.annotation.ExceptionHandler(RuntimeException.class)
-    public ResponseResult RuntimeException(RuntimeException ex){
-        log.error(ex.getMessage(),ex);
+    public ResponseResult RuntimeException(RuntimeException ex) {
+        log.error(ex.getMessage(), ex);
         ResponseResult response = new ResponseResult(false, ResponseCode.ERROR_RUNTION.getCode(), ResponseCode.ERROR_RUNTION.getMsg());
         return response;
     }
 
     @ResponseBody
     @org.springframework.web.bind.annotation.ExceptionHandler(Exception.class)
-    public ResponseResult exception(Exception ex){
-        log.error(ex.getMessage(),ex);
+    public ResponseResult exception(Exception ex) {
+        log.error(ex.getMessage(), ex);
         ResponseResult response = new ResponseResult(false, ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getMsg());
         return response;
     }
 
     @ResponseBody
     @org.springframework.web.bind.annotation.ExceptionHandler(HttpRequestMethodNotSupportedException.class)
-    public ResponseResult httpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException ex){
-        log.error(ex.getMessage(),ex);
+    public ResponseResult httpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException ex) {
+        log.error(ex.getMessage(), ex);
         ResponseResult response = new ResponseResult(false, ResponseCode.ERROR_MOTHODNOTSUPPORT.getCode(), ResponseCode.ERROR_MOTHODNOTSUPPORT.getMsg());
         return response;
     }
 
     @ResponseBody
     @org.springframework.web.bind.annotation.ExceptionHandler(IOException.class)
-    public ResponseResult iOException(IOException ex){
-        log.error(ex.getMessage(),ex);
+    public ResponseResult iOException(IOException ex) {
+        log.error(ex.getMessage(), ex);
         ResponseResult response = new ResponseResult(false, ResponseCode.ERROR_IO.getCode(), ResponseCode.ERROR_IO.getMsg());
         return response;
     }
 
     @ResponseBody
     @org.springframework.web.bind.annotation.ExceptionHandler(NullPointerException.class)
-    public ResponseResult nullPointer(NullPointerException ex){
-        log.error(ex.getMessage(),ex);
+    public ResponseResult nullPointer(NullPointerException ex) {
+        log.error(ex.getMessage(), ex);
         ResponseResult response = new ResponseResult(false, ResponseCode.ERROR_NULL.getCode(), ResponseCode.ERROR_NULL.getMsg());
         return response;
     }
 
     @ResponseBody
     @org.springframework.web.bind.annotation.ExceptionHandler(ClassCastException.class)
-    public ResponseResult classCastException(ClassCastException ex){
-        log.error(ex.getMessage(),ex);
+    public ResponseResult classCastException(ClassCastException ex) {
+        log.error(ex.getMessage(), ex);
         ResponseResult response = new ResponseResult(false, ResponseCode.ERROR_CLASS_CAST.getCode(), ResponseCode.ERROR_CLASS_CAST.getMsg());
         return response;
     }
@@ -132,13 +134,15 @@ public class ExceptionHandler {
 //        return response;
 //    }
 
-    /** 统一请求参数校验(实体对象传参).
-     * @author WCNGS@QQ.COM
-     * @See
-     * @date 2019/10/23 9:22
+    /**
+     * 统一请求参数校验(实体对象传参).
+     *
      * @param e
      * @return java.lang.String
      * @throws
+     * @author WCNGS@QQ.COM
+     * @See
+     * @date 2019/10/23 9:22
      * @since
      */
     @org.springframework.web.bind.annotation.ExceptionHandler({BindException.class})

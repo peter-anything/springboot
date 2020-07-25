@@ -20,6 +20,6 @@ public class DeadLetterProducerService {
                 RabbitConfig.DEAD_LETTER_EXCHANGE,
                 RabbitConfig.DEAD_LETTER_TEST_ROUTING_KEY,
                 number
-                );
+        );
     }
 }

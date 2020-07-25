@@ -43,10 +43,10 @@ public class NBAPlayerController {
         return nbaPlayerService.getAll();
     }
 
-    @GetMapping(value =  "/search")
+    @GetMapping(value = "/search")
     public ResponseResult search(@RequestBody QueryVo queryVo) {
         ResponseResult response = new ResponseResult();
-        if(!StringUtils.isNotEmpty(queryVo.getIdxName())){
+        if (!StringUtils.isNotEmpty(queryVo.getIdxName())) {
             response.setCode(ResponseCode.PARAM_ERROR_CODE.getCode());
             response.setMsg("索引为空，不允许提交");
             response.setStatus(false);
@@ -56,13 +56,13 @@ public class NBAPlayerController {
 
         try {
             Class<?> clazz = NBAPlayer.class;
-            Map<String,Object> params = queryVo.getQuery().get("match");
+            Map<String, Object> params = queryVo.getQuery().get("match");
             Set<String> keys = params.keySet();
             MatchQueryBuilder queryBuilders = null;
-            for(String key : keys){
+            for (String key : keys) {
                 queryBuilders = QueryBuilders.matchQuery(key, params.get(key));
             }
-            if(null != queryBuilders){
+            if (null != queryBuilders) {
                 SearchSourceBuilder searchSourceBuilder = ElasticSearchUtil.initSearchSourceBuilder(queryBuilders);
                 List<?> data = baseElasticSearchService.search(queryVo.getIdxName(), searchSourceBuilder, clazz);
                 response.setData(data);
@@ -71,7 +71,7 @@ public class NBAPlayerController {
             response.setCode(ResponseCode.ERROR.getCode());
             response.setMsg("服务忙，请稍后再试");
             response.setStatus(false);
-            log.error("查询数据异常，metadataVo={},异常信息={}", queryVo.toString(),e.getMessage());
+            log.error("查询数据异常，metadataVo={},异常信息={}", queryVo.toString(), e.getMessage());
         }
 
         return response;
@@ -135,7 +135,7 @@ public class NBAPlayerController {
         try {
             if (!baseElasticSearchService.isExistsIndex(idxVo.getIdxName())) {
                 String idxSql = JSON.toJSONString(idxVo.getIdxSql());
-                log.warn(" idxName={}, idxSql={}",idxVo.getIdxName(), idxSql);
+                log.warn(" idxName={}, idxSql={}", idxVo.getIdxName(), idxSql);
                 baseElasticSearchService.createIndex(idxVo.getIdxName(), idxSql);
             } else {
                 response.setStatus(false);
@@ -152,18 +152,18 @@ public class NBAPlayerController {
     }
 
     /**
-     * @Description 判断索引是否存在；存在-TRUE，否则-FALSE
      * @param index
      * @return xyz.wongs.weathertop.base.message.response.ResponseResult
      * @throws
+     * @Description 判断索引是否存在；存在-TRUE，否则-FALSE
      * @date 2019/11/19 18:48
      */
     @GetMapping(value = "/exist/{index}")
-    public ResponseResult indexExist(@PathVariable(value = "index") String index){
+    public ResponseResult indexExist(@PathVariable(value = "index") String index) {
 
         ResponseResult response = new ResponseResult();
         try {
-            if(!baseElasticSearchService.isExistsIndex(index)){
+            if (!baseElasticSearchService.isExistsIndex(index)) {
                 log.error("index={},不存在", index);
                 response.setCode(ResponseCode.RESOURCE_NOT_EXIST.getCode());
                 response.setMsg(ResponseCode.RESOURCE_NOT_EXIST.getMsg());
@@ -179,7 +179,7 @@ public class NBAPlayerController {
     }
 
     @GetMapping(value = "/del/{index}")
-    public ResponseResult indexDel(@PathVariable(value = "index") String index){
+    public ResponseResult indexDel(@PathVariable(value = "index") String index) {
         ResponseResult response = new ResponseResult();
         try {
             baseElasticSearchService.deleteIndex(index);

@@ -55,16 +55,18 @@ public class BaseElasticSearchService {
         }
     }
 
-    /** 断某个index是否存在
-     * @author peter.wang
-     * @See
-     * @date 2020/5/31
+    /**
+     * 断某个index是否存在
+     *
      * @param indexName index名
      * @return boolean
      * @throws
+     * @author peter.wang
+     * @See
+     * @date 2020/5/31
      * @since
      */
-    public boolean indexExists(String indexName) throws  Exception {
+    public boolean indexExists(String indexName) throws Exception {
         GetIndexRequest request = new GetIndexRequest(indexName);
         request.local(false);
         request.humanReadable(true);
@@ -75,7 +77,7 @@ public class BaseElasticSearchService {
     }
 
     public boolean isExistsIndex(String idxName) throws Exception {
-        return restHighLevelClient.indices().exists(new GetIndexRequest(idxName),RequestOptions.DEFAULT);
+        return restHighLevelClient.indices().exists(new GetIndexRequest(idxName), RequestOptions.DEFAULT);
     }
 
     public void buildSetting(CreateIndexRequest request) {
@@ -100,7 +102,7 @@ public class BaseElasticSearchService {
         DeleteRequest request = new DeleteRequest(idxName);
         request.id(entity.getId());
         try {
-            restHighLevelClient.delete(request,RequestOptions.DEFAULT);
+            restHighLevelClient.delete(request, RequestOptions.DEFAULT);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -109,7 +111,7 @@ public class BaseElasticSearchService {
     public void insertBatch(String idxName, List<ElasticSearchEntity> list) {
         BulkRequest request = new BulkRequest();
         list.forEach(item -> request.add(new IndexRequest(idxName).id(item.getId())
-            .source(JSON.toJSONString(item.getData()), XContentType.JSON)));
+                .source(JSON.toJSONString(item.getData()), XContentType.JSON)));
         try {
             restHighLevelClient.bulk(request, RequestOptions.DEFAULT);
         } catch (Exception e) {
@@ -158,7 +160,7 @@ public class BaseElasticSearchService {
     public void deleteIndex(String idxName) {
         try {
             if (!this.indexExists(idxName)) {
-                log.error(" idxName={} 已经存在",idxName);
+                log.error(" idxName={} 已经存在", idxName);
                 return;
             }
             restHighLevelClient.indices().delete(new DeleteIndexRequest(idxName), RequestOptions.DEFAULT);

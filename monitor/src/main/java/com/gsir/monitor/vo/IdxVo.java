@@ -29,9 +29,11 @@ public class IdxVo {
     public static class IdxSql {
         private boolean dynamic = true;
         private Map<String, Map<String, Object>> properties;
+
         public boolean isDynamic() {
             return this.dynamic;
         }
+
         public void setDynamic(boolean dynamic) {
             this.dynamic = dynamic;
         }

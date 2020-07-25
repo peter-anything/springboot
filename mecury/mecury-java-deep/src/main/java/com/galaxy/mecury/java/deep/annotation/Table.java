@@ -7,6 +7,8 @@ import java.lang.annotation.*;
 @Documented
 public @interface Table {
     String name();
+
     int age() default 20;
+
     boolean gender() default true;
 }

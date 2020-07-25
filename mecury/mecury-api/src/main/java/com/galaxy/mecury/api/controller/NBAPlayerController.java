@@ -35,7 +35,7 @@ public class NBAPlayerController {
             String key = "sku_total";
             try {
                 Thread.sleep(2000);
-            }catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -56,12 +56,12 @@ public class NBAPlayerController {
     @RequestMapping("/seckill")
     public String secKill() throws InterruptedException {
         Thread[] threads = new Thread[40];
-        for(int i = 0; i < 40; i ++) {
+        for (int i = 0; i < 40; i++) {
             Thread t = new Thread(new ThreadDecrementTotalDemo());
             threads[i] = t;
         }
 
-        for ( Thread t : threads) {
+        for (Thread t : threads) {
             t.start();
             t.join();
         }

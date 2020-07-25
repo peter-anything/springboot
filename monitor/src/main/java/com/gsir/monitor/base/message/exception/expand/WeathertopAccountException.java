@@ -5,7 +5,7 @@ import com.gsir.monitor.base.message.exception.GlobalException;
 
 public class WeathertopAccountException extends GlobalException {
 
-    public WeathertopAccountException(){
+    public WeathertopAccountException() {
         super(ResponseCode.AUTHENTICATION_FAILED_ERROR.getMsg(), ResponseCode.AUTHENTICATION_FAILED_ERROR.getCode());
     }
 
@@ -13,7 +13,7 @@ public class WeathertopAccountException extends GlobalException {
         super(message, code);
     }
 
-    public WeathertopAccountException(String message){
+    public WeathertopAccountException(String message) {
         super(message, ResponseCode.AUTHENTICATION_FAILED_ERROR.getCode());
     }
 }

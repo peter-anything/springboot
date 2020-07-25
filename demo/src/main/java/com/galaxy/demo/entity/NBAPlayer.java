@@ -5,6 +5,7 @@ package com.galaxy.demo.entity;
  * @Date: 2020/6/11 21:30
  * @Description:
  */
+
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 

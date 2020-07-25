@@ -8,5 +8,5 @@ import com.galaxy.mecury.entity.MsgLog;
  * @Date: 2020/6/15 23:47
  * @Description:
  */
-public interface MsgLogMapper  extends BaseMapper<MsgLog>  {
+public interface MsgLogMapper extends BaseMapper<MsgLog> {
 }

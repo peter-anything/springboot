@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@PropertySource(value = {"classpath:db/jdbc.properties"}, ignoreResourceNotFound=true)
+@PropertySource(value = {"classpath:db/jdbc.properties"}, ignoreResourceNotFound = true)
 public class DBProperty {
     @Value("${jdbc.driverClassName}")
     private String driverClassName;

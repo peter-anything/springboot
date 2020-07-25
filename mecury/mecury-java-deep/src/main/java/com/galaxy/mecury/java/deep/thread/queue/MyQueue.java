@@ -24,7 +24,7 @@ public class MyQueue<T> {
                 notFull.await();
             }
             elements[addIndex] = object;
-            length ++;
+            length++;
             notEmpty.signal();
         } finally {
             lock.unlock();
@@ -39,7 +39,7 @@ public class MyQueue<T> {
                 notEmpty.await();
             }
             Object element = elements[removeIndex];
-            length --;
+            length--;
             notFull.signal();
             return (T) element;
         } finally {

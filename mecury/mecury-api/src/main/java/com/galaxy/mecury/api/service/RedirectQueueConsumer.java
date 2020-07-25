@@ -12,10 +12,11 @@ import org.springframework.stereotype.Component;
 public class RedirectQueueConsumer {
     /**
      * 重定向队列和死信队列形参一致Integer number
+     *
      * @param number
      */
     @RabbitHandler
-    public void fromDeadLetter(Integer number){
+    public void fromDeadLetter(Integer number) {
         log.warn("RedirectQueueConsumer : {}", number);
         // 对应的操作
         int i = number / 1;

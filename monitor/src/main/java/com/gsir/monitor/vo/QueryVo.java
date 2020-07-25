@@ -6,10 +6,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
-/** 查询Vo对象
+/**
+ * 查询Vo对象
+ *
+ * @author WCNGS@QQ.COM
  * @ClassName QueryVo
  * @Description
- * @author WCNGS@QQ.COM
  * @Github <a>https://github.com/rothschil</a>
  * @date 2019/10/25 23:16
  * @Version 1.0.0
@@ -30,6 +32,6 @@ public class QueryVo {
     /**
      * 具体条件
      */
-    private Map<String, Map<String,Object>> query;
+    private Map<String, Map<String, Object>> query;
 }
 

@@ -9,9 +9,14 @@ import java.util.concurrent.ScheduledExecutorService;
 @SPI("default")
 public interface ExecutorRepository {
     ExecutorService createExecutorIfAbsent(URL url);
+
     ExecutorService getExecutor(URL url);
+
     void updateThreadpool(URL url, ExecutorService executor);
+
     ScheduledExecutorService ScheduledExecutor();
+
     ScheduledExecutorService getServiceScheduledExecutor();
+
     ExecutorService getSharedExecutor();
 }

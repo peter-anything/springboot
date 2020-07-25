@@ -4,7 +4,10 @@ import java.util.concurrent.locks.ReentrantLock;
 
 class L {
     public static int sharedV = 0;
-    public L() {}
+
+    public L() {
+    }
+
     public static synchronized void add() {
         sharedV++;
     }
@@ -14,6 +17,7 @@ public class ReentrantLockTest {
 
     private static int sharedV = 0;
     private static ReentrantLock lock = new ReentrantLock();
+
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(new Runnable() {
             @Override

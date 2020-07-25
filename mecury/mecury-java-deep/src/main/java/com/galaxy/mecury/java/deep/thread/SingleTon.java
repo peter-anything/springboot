@@ -13,7 +13,10 @@ import java.util.concurrent.locks.ReentrantLock;
 public class SingleTon {
     private static ReentrantLock lock = new ReentrantLock();
     private volatile static SingleTon singleTon;
-    private SingleTon() {}
+
+    private SingleTon() {
+    }
+
     public static SingleTon getInstance() {
         if (singleTon == null) {
             try {

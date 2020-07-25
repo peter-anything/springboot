@@ -15,15 +15,15 @@ public class CryptTool {
     /**
      * 定义加密算法,可用
      */
-    private static String          algorithm      = "DESede";
+    private static String algorithm = "DESede";
     /**
      * DES,DESede,Blowfish
      */
-    private static String          key            = "LIYWER52KH63JGFHLN456XWO";
-    private static String          encCharsetName = "UTF-8";
-    private static String          iv             = "12345678";
-    private static SecretKeySpec   keySpec        = null;
-    private static IvParameterSpec ivSpec         = null;
+    private static String key = "LIYWER52KH63JGFHLN456XWO";
+    private static String encCharsetName = "UTF-8";
+    private static String iv = "12345678";
+    private static SecretKeySpec keySpec = null;
+    private static IvParameterSpec ivSpec = null;
 
     public static SecretKey genDESKey(final byte[] key_byte) throws Exception {
         final SecretKey key = new SecretKeySpec(key_byte,

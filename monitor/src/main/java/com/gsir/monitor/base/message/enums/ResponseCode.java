@@ -28,7 +28,6 @@ public enum ResponseCode {
     DICT_LOCK_FAIL(601, "获取分布式锁失败"),
 
 
-
     TOKEN_EXPIRED(10001, "token 过期"),
     SIGN_VERIFI_ERROR(10002, "签名不匹配"),
     ALGORITHM_CAN_NOT_NULL(10003, "加密方式不能为空，可选 RS256、HS256"),
@@ -37,7 +36,6 @@ public enum ResponseCode {
     NOT_EXISTS_USER(10006, "不存在该用户信息"),
     FIRST_LANDING(10007, "首次登录"),
     AUTHENTICATION_FAILED_ERROR(10009, "用户或者密码不正确"),
-
 
 
     RESOURCE_NOT_EXIST(1001, "资源不存在"),

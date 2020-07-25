@@ -13,7 +13,7 @@ public enum ResponseCode {
     //前端进行页面展示的信息
     private String message;
 
-    private ResponseCode(Integer code, String message){
+    private ResponseCode(Integer code, String message) {
         this.code = code;
         this.message = message;
     }

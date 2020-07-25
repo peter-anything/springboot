@@ -2,6 +2,7 @@ package com.galaxy.mecury.api.controller;
 
 import com.galaxy.mecury.api.common.exception.ParamsNotValidException;
 import com.galaxy.mecury.api.service.DeadLetterProducerService;
+import com.galaxy.mecury.api.service.KafkaHelloService;
 import com.galaxy.mecury.entity.NBAPlayer;
 import com.galaxy.mecury.test.starter.service.ExampleService;
 import io.swagger.annotations.Api;
@@ -49,5 +50,15 @@ public class TestController {
     public String deadLetter() {
         deadLetterProducerService.send(10);
         return "deadLetter";
+    }
+
+    @Autowired
+    private KafkaHelloService kafkaHelloService;
+
+    @RequestMapping("/kafka/hello")
+    public String kafkaHello() {
+        kafkaHelloService.sendHello("test", "hello, world!中华人民共和国");
+        kafkaHelloService.sendHello("test2", "hello, world!中华人民共和国2");
+        return "hello";
     }
 }

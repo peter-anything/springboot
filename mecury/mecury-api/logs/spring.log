@@ -1,0 +1,15 @@
+2020-06-27 00:30:29.936 [main] INFO  com.galaxy.mecury.api.MecuryApiApplicationTests - Starting MecuryApiApplicationTests on DESKTOP-FKHQ6GL with PID 9788 (started by peter in D:\codes\springboot\mecury\mecury-api)
+2020-06-27 00:30:29.942 [main] INFO  com.galaxy.mecury.api.MecuryApiApplicationTests - No active profile set, falling back to default profiles: default
+2020-06-27 00:30:30.757 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-27 00:30:30.759 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-06-27 00:30:30.794 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23ms. Found 0 Redis repository interfaces.
+2020-06-27 00:30:32.596 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-06-27 00:30:34.735 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-27 00:30:35.269 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [192.168.1.103:5672]
+2020-06-27 00:30:35.550 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#21505815:0/SimpleConnection@6b2aafbc [delegate=amqp://admin@192.168.1.103:5672/, localPort= 65327]
+2020-06-27 00:30:35.613 [main] INFO  com.galaxy.mecury.api.MecuryApiApplicationTests - Started MecuryApiApplicationTests in 6.164 seconds (JVM running for 7.64)
+2020-06-27 00:30:37.416 [SpringContextShutdownHook] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2020-06-27 00:30:37.608 [SpringContextShutdownHook] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2020-06-27 00:30:37.611 [SpringContextShutdownHook] INFO  o.s.a.r.listener.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2020-06-27 00:30:37.612 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-06-27 00:30:37.729 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

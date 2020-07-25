@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 public class MyImportSelector implements ImportSelector {
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
-        return new String[] { Cat.class.getName(), Dog.class.getName() };
+        return new String[]{Cat.class.getName(), Dog.class.getName()};
     }
 
     @Override
