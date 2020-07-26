@@ -1,0 +1,12 @@
+server:
+  port: 9999
+
+logging:
+  file:
+    path: logs
+    max-size: 100MB
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"
+  level:
+    root: INFO

@@ -1,0 +1,9 @@
+rootProject.name = 'venus'
+include 'qq-server'
+include 'rpc-server'
+include 'rpc-common'
+include 'rpc-client'
+include 'rpc-test'
+include 'api-server'
+include 'api-dao'
+

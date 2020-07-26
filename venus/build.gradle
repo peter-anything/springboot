@@ -1,0 +1,107 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.4.RELEASE'
+    }
+    repositories {
+        def REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public/'
+        all { ArtifactRepository repo ->
+            if(repo instanceof MavenArtifactRepository){
+                def url = repo.url.toString()
+                if (url.startsWith('https://repo1.maven.org/maven2') || url.startsWith('https://jcenter.bintray.com/')) {
+                    remove repo
+                }
+            }
+        }
+        maven {
+            url REPOSITORY_URL
+        }
+    }
+    dependencies {
+        /* 添加插件依赖路径（通过jar方式） */
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}" as Object)
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.12'
+    }
+}
+
+subprojects {
+    /* 使用二进制插件 */
+    apply plugin: 'java' /* java是Gradle的核心插件，是内置的，内置插件不需要配置依赖路径 */
+    apply plugin: 'idea' /* 同上  让Gradle自动生成Intellij的项目文件*/
+    /* 注意gradle插件不再自动应用，所以这里需要指定 */
+    apply plugin: 'org.springframework.boot'
+    /* 依赖管理插件仍然是一个spring-boot-gradle-plugin传递依赖，所以无需在build.gradle配置中明确列出此依赖。 */
+    apply plugin: 'io.spring.dependency-management' /* 依赖管理，用来传递spring的依赖 */
+    apply plugin: 'com.google.protobuf'
+
+    group = 'com.galaxy.venus'
+    version = '1.0.0.RELEASE'
+
+    repositories {
+        def REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public/'
+        all { ArtifactRepository repo ->
+            if(repo instanceof MavenArtifactRepository){
+                def url = repo.url.toString()
+                if (url.startsWith('https://repo1.maven.org/maven2') || url.startsWith('https://jcenter.bintray.com/')) {
+                    remove repo
+                }
+            }
+        }
+        maven {
+            url REPOSITORY_URL
+        }
+    }
+
+    ext {
+        springBootVersion = '2.3.2.RELEASE'
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs 'src/main/java'
+            }
+            proto {
+                srcDir 'src/main/proto' //指定.proto文件路径
+            }
+        }
+    }
+
+    protobuf {
+        protoc {
+            artifact = 'com.google.protobuf:protoc:3.12.2'
+        }
+        generateProtoTasks {
+            all().each { task ->
+                task.builtins {
+                    java {
+                        option "lite"
+                    }
+                }
+            }
+        }
+        //生成目录
+        generatedFilesBaseDir = "$projectDir/src/"
+    }
+
+    //此处需要修改编译的JDK版本，如:1.8
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    /* 添加通用依赖 */
+    dependencies {
+        compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.12.2'
+        compile group: 'io.netty', name: 'netty-all', version: '4.1.51.Final'
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.1'
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.1'
+        compile group: 'com.dyuproject.protostuff', name: 'protostuff-runtime', version: '1.1.6'
+        compile group: 'com.dyuproject.protostuff', name: 'protostuff-core', version: '1.1.6'
+        compile group: 'org.objenesis', name: 'objenesis', version: '3.1'
+        compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
+        compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.6.1'
+        compile group: 'cn.hutool', name: 'hutool-all', version: '5.3.10'
+
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-starter-logging'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+}

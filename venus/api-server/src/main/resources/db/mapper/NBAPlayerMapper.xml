@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galaxy.venus.dao.NBAPlayerMapper">
+  <resultMap id="BaseResultMap" type="com.galaxy.venus.entity.NBAPlayer">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="country_en" jdbcType="VARCHAR" property="countryEn" />
+    <result column="display_affiliation" jdbcType="VARCHAR" property="displayAffiliation" />
+    <result column="display_name" jdbcType="VARCHAR" property="displayName" />
+    <result column="dob" jdbcType="VARCHAR" property="dob" />
+    <result column="draft_year" jdbcType="VARCHAR" property="draftYear" />
+    <result column="experience" jdbcType="VARCHAR" property="experience" />
+    <result column="first_initial" jdbcType="VARCHAR" property="firstInitial" />
+    <result column="first_name" jdbcType="VARCHAR" property="firstName" />
+    <result column="first_name_en" jdbcType="VARCHAR" property="firstNameEn" />
+    <result column="height" jdbcType="VARCHAR" property="height" />
+    <result column="jersey_no" jdbcType="VARCHAR" property="jerseyNo" />
+    <result column="last_name" jdbcType="VARCHAR" property="lastName" />
+    <result column="last_name_en" jdbcType="VARCHAR" property="lastNameEn" />
+    <result column="league_id" jdbcType="VARCHAR" property="leagueId" />
+    <result column="player_id" jdbcType="VARCHAR" property="playerId" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="school_type" jdbcType="VARCHAR" property="schoolType" />
+    <result column="weight" jdbcType="VARCHAR" property="weight" />
+    <result column="team_abbr" jdbcType="VARCHAR" property="teamAbbr" />
+    <result column="team_city" jdbcType="VARCHAR" property="teamCity" />
+    <result column="team_city_en" jdbcType="VARCHAR" property="teamCityEn" />
+    <result column="team_code" jdbcType="VARCHAR" property="teamCode" />
+    <result column="team_conference" jdbcType="VARCHAR" property="teamConference" />
+    <result column="team_display_abbr" jdbcType="VARCHAR" property="teamDisplayAbbr" />
+    <result column="team_display_conference" jdbcType="VARCHAR" property="teamDisplayConference" />
+    <result column="team_division" jdbcType="VARCHAR" property="teamDivision" />
+    <result column="team_id" jdbcType="VARCHAR" property="teamId" />
+    <result column="team_is_all_star_team" jdbcType="SMALLINT" property="teamIsAllStarTeam" />
+    <result column="team_is_league_team" jdbcType="SMALLINT" property="teamIsLeagueTeam" />
+    <result column="team_league_id" jdbcType="VARCHAR" property="teamLeagueId" />
+    <result column="team_name" jdbcType="VARCHAR" property="teamName" />
+    <result column="team_name_en" jdbcType="VARCHAR" property="teamNameEn" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, code, country, country_en, display_affiliation, display_name, dob, draft_year, 
+    experience, first_initial, first_name, first_name_en, height, jersey_no, last_name, 
+    last_name_en, league_id, player_id, position, school_type, weight, team_abbr, team_city, 
+    team_city_en, team_code, team_conference, team_display_abbr, team_display_conference, 
+    team_division, team_id, team_is_all_star_team, team_is_league_team, team_league_id, 
+    team_name, team_name_en
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from players
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from players
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.galaxy.venus.entity.NBAPlayer">
+    insert into players (id, code, country, 
+      country_en, display_affiliation, display_name, 
+      dob, draft_year, experience, 
+      first_initial, first_name, first_name_en, 
+      height, jersey_no, last_name, 
+      last_name_en, league_id, player_id, 
+      position, school_type, weight, 
+      team_abbr, team_city, team_city_en, 
+      team_code, team_conference, team_display_abbr, 
+      team_display_conference, team_division, team_id, 
+      team_is_all_star_team, team_is_league_team, 
+      team_league_id, team_name, team_name_en
+      )
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{countryEn,jdbcType=VARCHAR}, #{displayAffiliation,jdbcType=VARCHAR}, #{displayName,jdbcType=VARCHAR}, 
+      #{dob,jdbcType=VARCHAR}, #{draftYear,jdbcType=VARCHAR}, #{experience,jdbcType=VARCHAR}, 
+      #{firstInitial,jdbcType=VARCHAR}, #{firstName,jdbcType=VARCHAR}, #{firstNameEn,jdbcType=VARCHAR}, 
+      #{height,jdbcType=VARCHAR}, #{jerseyNo,jdbcType=VARCHAR}, #{lastName,jdbcType=VARCHAR}, 
+      #{lastNameEn,jdbcType=VARCHAR}, #{leagueId,jdbcType=VARCHAR}, #{playerId,jdbcType=VARCHAR}, 
+      #{position,jdbcType=VARCHAR}, #{schoolType,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, 
+      #{teamAbbr,jdbcType=VARCHAR}, #{teamCity,jdbcType=VARCHAR}, #{teamCityEn,jdbcType=VARCHAR}, 
+      #{teamCode,jdbcType=VARCHAR}, #{teamConference,jdbcType=VARCHAR}, #{teamDisplayAbbr,jdbcType=VARCHAR}, 
+      #{teamDisplayConference,jdbcType=VARCHAR}, #{teamDivision,jdbcType=VARCHAR}, #{teamId,jdbcType=VARCHAR}, 
+      #{teamIsAllStarTeam,jdbcType=SMALLINT}, #{teamIsLeagueTeam,jdbcType=SMALLINT}, 
+      #{teamLeagueId,jdbcType=VARCHAR}, #{teamName,jdbcType=VARCHAR}, #{teamNameEn,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.galaxy.venus.entity.NBAPlayer">
+    insert into players
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="countryEn != null">
+        country_en,
+      </if>
+      <if test="displayAffiliation != null">
+        display_affiliation,
+      </if>
+      <if test="displayName != null">
+        display_name,
+      </if>
+      <if test="dob != null">
+        dob,
+      </if>
+      <if test="draftYear != null">
+        draft_year,
+      </if>
+      <if test="experience != null">
+        experience,
+      </if>
+      <if test="firstInitial != null">
+        first_initial,
+      </if>
+      <if test="firstName != null">
+        first_name,
+      </if>
+      <if test="firstNameEn != null">
+        first_name_en,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="jerseyNo != null">
+        jersey_no,
+      </if>
+      <if test="lastName != null">
+        last_name,
+      </if>
+      <if test="lastNameEn != null">
+        last_name_en,
+      </if>
+      <if test="leagueId != null">
+        league_id,
+      </if>
+      <if test="playerId != null">
+        player_id,
+      </if>
+      <if test="position != null">
+        position,
+      </if>
+      <if test="schoolType != null">
+        school_type,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="teamAbbr != null">
+        team_abbr,
+      </if>
+      <if test="teamCity != null">
+        team_city,
+      </if>
+      <if test="teamCityEn != null">
+        team_city_en,
+      </if>
+      <if test="teamCode != null">
+        team_code,
+      </if>
+      <if test="teamConference != null">
+        team_conference,
+      </if>
+      <if test="teamDisplayAbbr != null">
+        team_display_abbr,
+      </if>
+      <if test="teamDisplayConference != null">
+        team_display_conference,
+      </if>
+      <if test="teamDivision != null">
+        team_division,
+      </if>
+      <if test="teamId != null">
+        team_id,
+      </if>
+      <if test="teamIsAllStarTeam != null">
+        team_is_all_star_team,
+      </if>
+      <if test="teamIsLeagueTeam != null">
+        team_is_league_team,
+      </if>
+      <if test="teamLeagueId != null">
+        team_league_id,
+      </if>
+      <if test="teamName != null">
+        team_name,
+      </if>
+      <if test="teamNameEn != null">
+        team_name_en,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="countryEn != null">
+        #{countryEn,jdbcType=VARCHAR},
+      </if>
+      <if test="displayAffiliation != null">
+        #{displayAffiliation,jdbcType=VARCHAR},
+      </if>
+      <if test="displayName != null">
+        #{displayName,jdbcType=VARCHAR},
+      </if>
+      <if test="dob != null">
+        #{dob,jdbcType=VARCHAR},
+      </if>
+      <if test="draftYear != null">
+        #{draftYear,jdbcType=VARCHAR},
+      </if>
+      <if test="experience != null">
+        #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="firstInitial != null">
+        #{firstInitial,jdbcType=VARCHAR},
+      </if>
+      <if test="firstName != null">
+        #{firstName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstNameEn != null">
+        #{firstNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="jerseyNo != null">
+        #{jerseyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lastName != null">
+        #{lastName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastNameEn != null">
+        #{lastNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="leagueId != null">
+        #{leagueId,jdbcType=VARCHAR},
+      </if>
+      <if test="playerId != null">
+        #{playerId,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolType != null">
+        #{schoolType,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="teamAbbr != null">
+        #{teamAbbr,jdbcType=VARCHAR},
+      </if>
+      <if test="teamCity != null">
+        #{teamCity,jdbcType=VARCHAR},
+      </if>
+      <if test="teamCityEn != null">
+        #{teamCityEn,jdbcType=VARCHAR},
+      </if>
+      <if test="teamCode != null">
+        #{teamCode,jdbcType=VARCHAR},
+      </if>
+      <if test="teamConference != null">
+        #{teamConference,jdbcType=VARCHAR},
+      </if>
+      <if test="teamDisplayAbbr != null">
+        #{teamDisplayAbbr,jdbcType=VARCHAR},
+      </if>
+      <if test="teamDisplayConference != null">
+        #{teamDisplayConference,jdbcType=VARCHAR},
+      </if>
+      <if test="teamDivision != null">
+        #{teamDivision,jdbcType=VARCHAR},
+      </if>
+      <if test="teamId != null">
+        #{teamId,jdbcType=VARCHAR},
+      </if>
+      <if test="teamIsAllStarTeam != null">
+        #{teamIsAllStarTeam,jdbcType=SMALLINT},
+      </if>
+      <if test="teamIsLeagueTeam != null">
+        #{teamIsLeagueTeam,jdbcType=SMALLINT},
+      </if>
+      <if test="teamLeagueId != null">
+        #{teamLeagueId,jdbcType=VARCHAR},
+      </if>
+      <if test="teamName != null">
+        #{teamName,jdbcType=VARCHAR},
+      </if>
+      <if test="teamNameEn != null">
+        #{teamNameEn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.galaxy.venus.entity.NBAPlayer">
+    update players
+    <set>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="countryEn != null">
+        country_en = #{countryEn,jdbcType=VARCHAR},
+      </if>
+      <if test="displayAffiliation != null">
+        display_affiliation = #{displayAffiliation,jdbcType=VARCHAR},
+      </if>
+      <if test="displayName != null">
+        display_name = #{displayName,jdbcType=VARCHAR},
+      </if>
+      <if test="dob != null">
+        dob = #{dob,jdbcType=VARCHAR},
+      </if>
+      <if test="draftYear != null">
+        draft_year = #{draftYear,jdbcType=VARCHAR},
+      </if>
+      <if test="experience != null">
+        experience = #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="firstInitial != null">
+        first_initial = #{firstInitial,jdbcType=VARCHAR},
+      </if>
+      <if test="firstName != null">
+        first_name = #{firstName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstNameEn != null">
+        first_name_en = #{firstNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        height = #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="jerseyNo != null">
+        jersey_no = #{jerseyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lastName != null">
+        last_name = #{lastName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastNameEn != null">
+        last_name_en = #{lastNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="leagueId != null">
+        league_id = #{leagueId,jdbcType=VARCHAR},
+      </if>
+      <if test="playerId != null">
+        player_id = #{playerId,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolType != null">
+        school_type = #{schoolType,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="teamAbbr != null">
+        team_abbr = #{teamAbbr,jdbcType=VARCHAR},
+      </if>
+      <if test="teamCity != null">
+        team_city = #{teamCity,jdbcType=VARCHAR},
+      </if>
+      <if test="teamCityEn != null">
+        team_city_en = #{teamCityEn,jdbcType=VARCHAR},
+      </if>
+      <if test="teamCode != null">
+        team_code = #{teamCode,jdbcType=VARCHAR},
+      </if>
+      <if test="teamConference != null">
+        team_conference = #{teamConference,jdbcType=VARCHAR},
+      </if>
+      <if test="teamDisplayAbbr != null">
+        team_display_abbr = #{teamDisplayAbbr,jdbcType=VARCHAR},
+      </if>
+      <if test="teamDisplayConference != null">
+        team_display_conference = #{teamDisplayConference,jdbcType=VARCHAR},
+      </if>
+      <if test="teamDivision != null">
+        team_division = #{teamDivision,jdbcType=VARCHAR},
+      </if>
+      <if test="teamId != null">
+        team_id = #{teamId,jdbcType=VARCHAR},
+      </if>
+      <if test="teamIsAllStarTeam != null">
+        team_is_all_star_team = #{teamIsAllStarTeam,jdbcType=SMALLINT},
+      </if>
+      <if test="teamIsLeagueTeam != null">
+        team_is_league_team = #{teamIsLeagueTeam,jdbcType=SMALLINT},
+      </if>
+      <if test="teamLeagueId != null">
+        team_league_id = #{teamLeagueId,jdbcType=VARCHAR},
+      </if>
+      <if test="teamName != null">
+        team_name = #{teamName,jdbcType=VARCHAR},
+      </if>
+      <if test="teamNameEn != null">
+        team_name_en = #{teamNameEn,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.galaxy.venus.entity.NBAPlayer">
+    update players
+    set code = #{code,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      country_en = #{countryEn,jdbcType=VARCHAR},
+      display_affiliation = #{displayAffiliation,jdbcType=VARCHAR},
+      display_name = #{displayName,jdbcType=VARCHAR},
+      dob = #{dob,jdbcType=VARCHAR},
+      draft_year = #{draftYear,jdbcType=VARCHAR},
+      experience = #{experience,jdbcType=VARCHAR},
+      first_initial = #{firstInitial,jdbcType=VARCHAR},
+      first_name = #{firstName,jdbcType=VARCHAR},
+      first_name_en = #{firstNameEn,jdbcType=VARCHAR},
+      height = #{height,jdbcType=VARCHAR},
+      jersey_no = #{jerseyNo,jdbcType=VARCHAR},
+      last_name = #{lastName,jdbcType=VARCHAR},
+      last_name_en = #{lastNameEn,jdbcType=VARCHAR},
+      league_id = #{leagueId,jdbcType=VARCHAR},
+      player_id = #{playerId,jdbcType=VARCHAR},
+      position = #{position,jdbcType=VARCHAR},
+      school_type = #{schoolType,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=VARCHAR},
+      team_abbr = #{teamAbbr,jdbcType=VARCHAR},
+      team_city = #{teamCity,jdbcType=VARCHAR},
+      team_city_en = #{teamCityEn,jdbcType=VARCHAR},
+      team_code = #{teamCode,jdbcType=VARCHAR},
+      team_conference = #{teamConference,jdbcType=VARCHAR},
+      team_display_abbr = #{teamDisplayAbbr,jdbcType=VARCHAR},
+      team_display_conference = #{teamDisplayConference,jdbcType=VARCHAR},
+      team_division = #{teamDivision,jdbcType=VARCHAR},
+      team_id = #{teamId,jdbcType=VARCHAR},
+      team_is_all_star_team = #{teamIsAllStarTeam,jdbcType=SMALLINT},
+      team_is_league_team = #{teamIsLeagueTeam,jdbcType=SMALLINT},
+      team_league_id = #{teamLeagueId,jdbcType=VARCHAR},
+      team_name = #{teamName,jdbcType=VARCHAR},
+      team_name_en = #{teamNameEn,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectAll" resultMap="BaseResultMap" flushCache="true" useCache="false">
+    select
+    <include refid="Base_Column_List"/>
+    from players
+  </select>
+</mapper>
