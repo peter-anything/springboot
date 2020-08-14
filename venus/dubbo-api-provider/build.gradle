@@ -1,0 +1,8 @@
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    compile group: 'org.apache.dubbo', name: 'dubbo-spring-boot-starter', version: '2.7.7'
+
+    implementation project(":dubbo-api")
+}

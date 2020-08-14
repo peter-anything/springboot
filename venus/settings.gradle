@@ -11,4 +11,8 @@ include 'bigdata'
 include 'jvm'
 include 'spring-learn'
 include 'datastructure'
+include 'dubbo-accout-api'
+include 'dubbo-api-provider'
+include 'dubbo-api-consumer'
+include 'dubbo-api'
 
